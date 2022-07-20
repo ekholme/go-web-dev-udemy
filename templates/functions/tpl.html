@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Some Cool People</title>
+</head>
+
+<body>
+    <ul>
+        {{range .}}
+        <li>{{uc .Name}} - {{ft .Motto}}</li>
+        {{end}}
+    </ul>
+</body>
+
+</html>
