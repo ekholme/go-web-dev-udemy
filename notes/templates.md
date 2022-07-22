@@ -25,6 +25,9 @@
 
 ## Passing Functions into Templates
 - generally we don't want to put funcs in our templates that, like, pull from the db. But we might want to use some functions that slightly modify the data if necessary.
+- there are also a bunch of predefined global functions you can pass into templates. There are described [here](https://pkg.go.dev/text/template#hdr-Functions)
+- best practice is to do all of the data processing outside of the template -- we generally just want template functions to do some formatting
+- we can also use methods in templates just like you'd imagine. e.g. the struct we pass in is ., so we can call the method via .method_name
 
 ### Pipelining between functions
 - We can pass data from one function to another within a template via piplining. E.g.
@@ -32,3 +35,27 @@
 {{. | fdbl | fsq}}
 
 Would pass our data (.) to the `fdbl` function and then the result of that function to the `fsq` function
+
+## Defining Templates
+- In a file, we can define a template like this:
+{{define "template_name"}}
+Template content
+{{end}}
+
+And we can then pass that template into another template/file via:
+{{template "template_name"}}
+
+Prob obvious, but we can pass data into templates that have nested templates in them
+
+We can pass data to the nested template via
+{{template "template_name" .}}
+
+## Composition
+
+- if we contstruct our data and our templates appropriately, we can get very concise/elegant representations of what we want to present to the user.
+- *see the "passing data into templates & composition" video*. TLDR is that we want to make structs with lots of nested elements if we want to pass lots of data in.
+
+# HTML Templates
+
+- html templates are built on top of text templates. Anything we can do with a text template, we can do with an html template (plus some webby stuff)
+- one of the main things that the html template package will do is escape unsafe characters on the web. And note that it does these things "automagically"
