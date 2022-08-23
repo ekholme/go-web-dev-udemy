@@ -11,3 +11,10 @@
     - connect
     - read or write
 - look into some of the docs for bufio.NewScanner() -- and practice with this some more!
+- but we'll pretty much never use TCP when building a web app, so I'm actually going to skip over the rest of this
+
+## HTTP
+
+- [Handlers](https://pkg.go.dev/net/http#Handler) are pretty much the most important concept of the `http` package. Handlers are interfaces with a ServeHTTP method.
+-A [request](https://pkg.go.dev/net/http#Request) is a struct with some information
+- **RESUME AT 30 -- UNDERSTANDING LISTEN AND SERVE**
