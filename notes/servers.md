@@ -15,6 +15,17 @@
 
 ## HTTP
 
-- [Handlers](https://pkg.go.dev/net/http#Handler) are pretty much the most important concept of the `http` package. Handlers are interfaces with a ServeHTTP method.
+- [Handlers](https://pkg.go.dev/net/http#Handler) are pretty much the most important concept of the `http` package. Handlers are interfaces with a ServeHTTP(ResponseWriter, *Request) method.
 -A [request](https://pkg.go.dev/net/http#Request) is a struct with some information
-- **RESUME AT 30 -- UNDERSTANDING LISTEN AND SERVE**
+
+
+### Form Data
+
+- most of the time we want to submit data using the "POST" method through a form. This will put the data in the body of the request. If we use "GET", it will put the data in the URL.
+- sort of a misc note, but http templates are doing a lot of work in these applications.
+- Recall that requests (*http.Request) are structs that contain various values. And we can extract the values from these responses, e.g. req.Header or req.URL, etc.
+- a ResponseWriter is also an interface, and it has 3 methods:
+    - Header()
+    - Write([]byte)
+    - WriteHeader(int)
+
