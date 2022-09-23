@@ -29,3 +29,6 @@
     - Write([]byte)
     - WriteHeader(int)
 
+- Sort of misc, but to grab a file that the user uploaded, we can access it via `req.FormFile("whatever")`
+- We can have people upload files and then save them on the server -- this is something we might do we if wanted to make a Wiki. *I might want to try to make a Wiki from scratch again as practice with Go*
+    - *see the Github repo for this course in section 8: creating state*
